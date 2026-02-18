@@ -1,4 +1,4 @@
-class AddMoreMovies < ActiveRecord::Migration
+class AddMoreMovies < ActiveRecord::Migration[5.0]
   MORE_MOVIES = [
     {:title => 'Aladdin', :rating => 'G', :release_date => '25-Nov-1992'},
     {:title => 'The Terminator', :rating => 'R', :release_date => '26-Oct-1984'},
@@ -19,7 +19,7 @@ class AddMoreMovies < ActiveRecord::Migration
 
   def down
     MORE_MOVIES.each do |movie|
-      Movie.find_by_title_and_rating(movie[:title], movie[:rating]).destroy
+      Movie.find_by(title: movie[:title], rating: movie[:rating]).destroy
     end
   end
 end

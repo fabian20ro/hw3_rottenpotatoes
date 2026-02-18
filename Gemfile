@@ -1,40 +1,40 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails', '~> 7.1.0'
 
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+# Use sqlite3 as the database for Active Record
+gem 'sqlite3', '~> 1.7'
 
-# for Heroku deployment - as described in Ap. A of ELLS book
-group :development, :test do
-  gem 'sqlite3'
-  gem 'ruby-debug19', :require => 'ruby-debug'
-  gem 'cucumber-rails'
-  gem 'cucumber-rails-training-wheels'
-  gem 'database_cleaner'
-  gem 'capybara'
-  gem 'launchy'
-end
-group :production do
-#  gem 'pg'
-end
+# Use the Puma web server
+gem 'puma', '~> 6.0'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'therubyracer'              
-  gem 'sass-rails', "  ~> 3.1.0"
-  gem 'coffee-rails', "~> 3.1.0"
-  gem 'uglifier'
-end
+# Asset pipeline
+gem 'sprockets-rails'
+gem 'sass-rails', '>= 6'
+gem 'uglifier', '>= 1.3.0'
 
+# Use jquery with Rails
 gem 'jquery-rails'
 
-# Use unicorn as the web server
-# gem 'unicorn'
+# HAML template engine
+gem 'haml', '~> 6.0'
+gem 'haml-rails', '~> 2.1'
 
-# Deploy with Capistrano
-# gem 'capistrano'
+# Build JSON APIs with ease
+gem 'jbuilder', '~> 2.7'
 
-# To use debugger
-gem 'haml'
+# Reduces boot times through caching
+gem 'bootsnap', require: false
+
+group :development, :test do
+  gem 'debug', platforms: %i[mri]
+  gem 'cucumber-rails', '~> 3.0', require: false
+  gem 'cucumber-rails-training-wheels', '~> 1.0'
+  gem 'database_cleaner-active_record', '~> 2.1'
+  gem 'capybara', '~> 3.39'
+  gem 'launchy'
+end
+
+group :development do
+  gem 'web-console'
+end
